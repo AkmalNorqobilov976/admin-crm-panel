@@ -1,0 +1,134 @@
+// $blue: blue;
+// sizes
+$size10px: 10px;
+$size12px: 12px;
+$size14px: 14px;
+$size15px: 15px;
+$size16px: 16px;
+$size17px: 17px;
+$size18px: 18px;
+$size19px: 19px;
+$size20px: 20px;
+$size22px: 22px;
+$size24px: 24px;
+$size26px: 26px;
+$size27px: 27px;
+$size28px: 28px;
+$size29px: 29px;
+$size30px: 30px;
+$size31px: 31px;
+$size32px: 32px;
+$size34px: 34px;
+$size40px: 40px;
+
+$size100pc: 100%;
+
+
+$size50: 50px;
+// colors
+$dark-900: #000;
+$dark-62: #1E0E62;
+$white: #fff;
+$yellow-100: #FFF7D9;
+$yellow-500: #FFCE33;
+$yellow-550: #FFCC33;
+$yellow-600: #F0B400;
+$gray-100: #F1F1F1;
+$gray-38: #383838;
+$gray-eb: #EBEBEB;
+$gray-e9: #E9E9E9;
+$gray-f5: #F5F5F5;
+$gray-58: #585858;
+$gray-f8: #F8F8F8;
+$gray-f4: #F4F4F4;
+$gray-bc: #BCBCBC;
+$gray-95: #959595;
+$gray-50: #505050;
+$gray-400: #656565;
+$gray-87: #878787;
+$gray-dc: #DCDCDC;
+$gren-600: #04AF00;
+$gren-500: #12A60F;
+$purple-500: #BFD1FF;
+
+$red-500: #E92020;
+
+
+
+
+// linier gradients
+
+$linierGradient-yellow-100: linear-gradient(#FFC71D 10% #FFCC33 0% #FFC71D 0%);
+
+body {
+    background: linear-gradient(rgba(255, 199, 29, 0.1) 0% rgba(255, 204, 51, 0) 100% rgba(255, 199, 29, 0) 100%)
+}
+
+%fSize10lHeight12 {
+    font-size: $size10px;
+    line-height: $size12px;
+}
+
+%fSize14lHeight17 {
+    font-size: $size14px;
+    line-height: $size17px;
+}
+
+
+%fSize16lHeight20 {
+    font-size: $size16px;
+    line-height: $size20px;
+}
+
+%fSize18lHeight22 {
+    font-size: $size18px;
+    line-height: $size22px;
+}
+
+%fSize20lHeight24 {
+    font-size: $size20px;
+    line-height: $size24px;
+}
+
+
+%fSize22lHeight27 {
+    font-size: $size22px;
+    line-height: $size27px;
+}
+
+%fSize24lHeight29 {
+    font-size: $size24px;
+    line-height: $size29px;
+}
+%fSize26lHeight31 {
+    font-size: $size26px;
+    line-height: $size31px;
+}
+%fSize28lHeight34 {
+    font-size: $size28px;
+    line-height: $size34px;
+}
+
+%fSize34lHeight40 {
+    font-size: $size34px;
+    line-height: $size40px;
+}
+
+// Sidebar
+
+%sidebarItemsWidth {
+    width: 260px;
+    height: 60px;
+}
+
+.active-yellow-style {
+    background: $linierGradient-yellow-100;
+    color: $yellow-500;
+    border-left: $yellow-500 5px solid;
+}
+
+.active-appbar-style {
+    @extend %fSize24lHeight29;
+    font-weight: bold;
+    border-bottom: $yellow-500 5px solid;
+}
