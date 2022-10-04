@@ -35,15 +35,12 @@ const pushSelectedItems = () => {
 // };
 </script>
 <template>
-  <default-layout :rightSidebar="isRightSidebar" :rightWidth="540">
+  <default-layout>
     <!-- <v-btn @click="logit">MailRef</v-btn> -->
     <template v-slot:appbar>
       <DashboardAppbarList />
     </template>
-    {{ex4}}
-    <RightSidebar color="blue" v-model="ex4"/>
-    <!-- <v-navigation-drawer temporary v-model="isRightSidebar" location="right" absolute></v-navigation-drawer> -->
-    <template #rigthsidebar>
+    <RightSidebar color="white" width="540px" v-model="isRightSidebar">
       <div class="give-to-curier-right-sidebar">
         <p class="title">Kuryer biriktirish</p>
         <div class="mails-main-search-rightsidebar">
@@ -79,10 +76,15 @@ const pushSelectedItems = () => {
         <div class="give-to-curier-actions mt-8 ml-10">
           <v-btn color="yellow-darken-2" @click="mailRef.value?.itemsSelected||$router.push('/mails/give-to-curier')"
             class="mr-8 give-to-curier-action-btn" flat>Saqlash</v-btn>
-          <v-btn variant="outlined" @click="isRightSidebarChanger()" flat color="#1E0E62" class="give-to-curier-action-btn">Bekor qilish</v-btn>
+          <v-btn variant="outlined" @click="isRightSidebarChanger()" flat color="#1E0E62"
+            class="give-to-curier-action-btn">Bekor qilish</v-btn>
         </div>
       </div>
-    </template>
+    </RightSidebar>
+    <!-- <v-navigation-drawer temporary v-model="isRightSidebar" location="right" absolute></v-navigation-drawer> -->
+    <!-- <template #rigthsidebar>
+    
+    </template> -->
     <!-- <v-navigation-drawer location="right" absolute app>
       salom
     </v-navigation-drawer> -->
