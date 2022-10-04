@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, computed, reactive } from "vue";
+import { defineProps, ref, computed, reactive, defineEmits } from "vue";
 const props = defineProps({
     color: {
         type: String,
@@ -8,12 +8,19 @@ const props = defineProps({
     width: {
         type: Number,
         default: 466
+    },
+    modelValue: {
+        type: Boolean,
+        default: false
     }
 })
 const color = reactive({
-    color: "red",
-    width: 
+    color: props.color,
+    width: props.width
 })
+const updateValue= ($event)=>{
+    console.log($event.target.checked);
+}
 const cssProps = computed(() => {
     return {
         '--color': props.color
@@ -22,7 +29,8 @@ const cssProps = computed(() => {
 </script>
 
 <template>
-    <div>salomda {{props.color}}</div>
+    <input type="checkbox" :checked="modelValue" @change="$emit('update:modelValue', $event.target.checked)">
+    <div id="rightsidebar">salomda {{props.color}}</div>
 </template>
 
 

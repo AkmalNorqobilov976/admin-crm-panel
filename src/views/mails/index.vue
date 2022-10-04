@@ -40,7 +40,8 @@ const pushSelectedItems = () => {
     <template v-slot:appbar>
       <DashboardAppbarList />
     </template>
-    <RightSidebar color="blue"/>
+    {{ex4}}
+    <RightSidebar color="blue" v-model="ex4"/>
     <!-- <v-navigation-drawer temporary v-model="isRightSidebar" location="right" absolute></v-navigation-drawer> -->
     <template #rigthsidebar>
       <div class="give-to-curier-right-sidebar">
