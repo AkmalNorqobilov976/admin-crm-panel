@@ -43,7 +43,7 @@ const linearsColor = reactive({
 });
 const accepterColor = reactive({
   bgColor: "#E7E7E7",
-  color: "#484848"
+  color: "#484848",
 });
 const colors= {
   progress: {
