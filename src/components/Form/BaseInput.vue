@@ -40,48 +40,32 @@ export default {
 <template>
   <div class="custom-input">
     <label :for="label">{{ label }}</label>
-    <div class="input-part">
+    <div class="input-part" :class="{inputBordered:modelValue}">
       <div>
-        <span v-if="phone">+998</span
-        ><input
-          :type="type"
-          v-bind="$attrs"
-          :value="modelValue"
-          @input="updateValue"
-        />
+        <span v-if="phone">+998</span><input :type="type" v-bind="$attrs" :value="modelValue" @input="updateValue" />
         <span v-if="isPrice">so‘m</span>
       </div>
     </div>
     <div v-if="isRecommendedPrices" class="d-inline-flex recommended-prices">
-      <span
-        class="recommended-price"
-        @click="selectedPrice = '20,000'"
-        :class="{ selectedPrice: selectedPrice == '20,000' }"
-        >20,000</span
-      >
-      <span
-        class="recommended-price"
-        @click="selectedPrice = '30,000'"
-        :class="{ selectedPrice: selectedPrice == '30,000' }"
-        >30,000</span
-      >
-      <span
-        class="recommended-price"
-        @click="selectedPrice = '35,000'"
-        :class="{ selectedPrice: selectedPrice == '35,000' }"
-        >35,000</span
-      >
-      <span
-        class="recommended-price"
-        @click="selectedPrice = '40,000'"
-        :class="{ selectedPrice: selectedPrice == '40,000' }"
-        >40,000</span
-      >
+      <span class="recommended-price" @click="selectedPrice = '20,000'"
+        :class="{ selectedPrice: selectedPrice == '20,000' }">20,000</span>
+      <span class="recommended-price" @click="selectedPrice = '30,000'"
+        :class="{ selectedPrice: selectedPrice == '30,000' }">30,000</span>
+      <span class="recommended-price" @click="selectedPrice = '35,000'"
+        :class="{ selectedPrice: selectedPrice == '35,000' }">35,000</span>
+      <span class="recommended-price" @click="selectedPrice = '40,000'"
+        :class="{ selectedPrice: selectedPrice == '40,000' }">40,000</span>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.inputBordered {
+  border: 2px solid #000;
+  background: #fff !important;
+  transition: all .3s ease;
+}
+
 .custom-input {
   label {
     @extend %fSize16lHeight20;
@@ -89,18 +73,22 @@ export default {
     color: $dark-62;
     font-weight: 500;
   }
+
   .input-part {
     background: $gray-f4;
     border-radius: 20px;
+
     div {
       display: flex;
       align-items: center;
       padding: 0 20px;
       @extend %fSize20lHeight24;
+
       span {
         margin-right: 5px;
         font-weight: bold;
       }
+
       input {
         height: 56px;
         flex: 1 1 auto;
@@ -108,10 +96,18 @@ export default {
       }
     }
   }
+
+  .inputBordered {
+    border: 2px solid #000;
+    background: #fff !important;
+    transition: all .3s ease;
+  }
+
   .recommended-prices {
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 10px;
+
     .recommended-price {
       @extend %fSize20lHeight24;
       background: $gray-f4;
@@ -120,6 +116,7 @@ export default {
       border-radius: 8px;
       cursor: default;
     }
+
     .selectedPrice {
       color: $dark-900;
       background: $gray-dc;

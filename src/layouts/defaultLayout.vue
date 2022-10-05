@@ -18,7 +18,6 @@ defineProps({
       v-model="rightSidebar"
       :width="rightWidth"
       location="right"
-      temporary
     >
       <slot name="rigthsidebar">
         

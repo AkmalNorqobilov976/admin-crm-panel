@@ -25,8 +25,8 @@ export default {
       selected: this.default
         ? this.default
         : this.options.length > 0
-        ? this.options[0]
-        : null,
+          ? this.options[0]
+          : null,
       open: false,
     };
   },
@@ -41,25 +41,18 @@ export default {
   <div class="custom-select" :tabindex="tabindex" @blur="open = false">
     <label :for="label" class="custom-select-label">{{ label }}</label>
     <div class="selected" :class="{ open: open }" @click="open = !open">
-      <span class="selected-info">
+      <span class="selected-info" :class="{inputBordered: selected}">
         {{ selected }}
       </span>
-      <span
-        class="selected-icon mdi mdi-chevron-down"
-        :class="{ rotate: open }"
-      >
+      <span class="selected-icon mdi mdi-chevron-down" :class="{ rotate: open }">
       </span>
     </div>
     <div class="items" :class="{ selectHide: !open }">
-      <div
-        v-for="(option, i) of options"
-        :key="i"
-        @click="
-          selected = option;
-          open = false;
-          $emit('input', option);
-        "
-      >
+      <div v-for="(option, i) of options" :key="i" @click="
+        selected = option;
+        open = false;
+        $emit('input', option);
+      ">
         {{ option }}
       </div>
     </div>
@@ -67,6 +60,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+
 .custom-select {
   position: relative;
 
@@ -75,6 +70,7 @@ export default {
   outline: none;
   height: 56px;
   line-height: 56px;
+
   .custom-select-label {
     @extend %fSize16lHeight20;
     margin-bottom: 6px;
@@ -95,13 +91,16 @@ export default {
   cursor: pointer;
   user-select: none;
   display: flex;
+
   .selected-info {
     flex: 1 1 auto;
   }
+
   .selected-icon {
     transition: transform 0.2s ease-in;
     margin-right: 25px;
   }
+
   .rotate {
     transform: rotate(-180deg);
     transition: transform 0.2s ease-in;

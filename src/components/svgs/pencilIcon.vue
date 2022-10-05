@@ -1,20 +1,27 @@
+<script setup>
+import { defineProps } from "vue";
+defineProps({
+  bgColor: {
+    type: String,
+    default: "none"
+  },
+  color: {
+    type: String,
+    default: "white"
+
+  }
+})
+</script>
 <template>
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="20" height="20" viewBox="0 0 20 20" :fill="bgColor" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_234_2042)">
       <path
         d="M9.68922 6.77575C10.2751 6.18996 11.2249 6.19004 11.8106 6.77593L13.2245 8.19019C13.8102 8.77602 13.8101 9.72571 13.2244 10.3114L6.47433 17.0608C6.19303 17.3421 5.81152 17.5001 5.41372 17.5001H3.5C2.94771 17.5001 2.5 17.0524 2.5 16.5001V14.5856C2.5 14.1877 2.65806 13.8062 2.93939 13.5249L9.68922 6.77575ZM12.9887 5.59715C12.4031 5.01146 12.4029 4.0619 12.9885 3.47608L13.6958 2.7684C13.8521 2.61218 14.064 2.52441 14.285 2.52441C14.506 2.52441 14.7179 2.61218 14.8742 2.7684L17.2317 5.1259C17.3879 5.28218 17.4757 5.4941 17.4757 5.71507C17.4757 5.93604 17.3879 6.14796 17.2317 6.30424L16.524 7.01158C15.9382 7.59713 14.9886 7.59701 14.4029 7.01133L12.9887 5.59715Z"
-        fill="white"
-      />
+        :fill="color" />
     </g>
     <defs>
       <clipPath id="clip0_234_2042">
-        <rect width="20" height="20" fill="white" />
+        <rect width="20" height="20" :fill="color" />
       </clipPath>
     </defs>
   </svg>

@@ -17,6 +17,7 @@ export default {
             { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true },
             { text: "LAST ATTENDED", value: "lastAttended", width: 200 },
             { text: "COUNTRY", value: "country" },
+            { text: "Operation", value: "operation" }
         ];
         const dataTable = ref();
         const currentPageFirstIndex = computed(() => dataTable.value?.currentPageFirstIndex);
@@ -868,99 +869,93 @@ export default {
 };
 </script>
 <template>
-  <EasyDataTable
-    ref="dataTable"
-    :sort-by="sortBy"
-    :sort-type="sortType"
-    :headers="headers"
-    :items="items"
-    table-class-name="customize-table"
-    button-pagination
-    :hide-footer="true"
-    v-model:items-selected="itemsSelected"
-    :rows-per-page="10"
-  >
-    <template #expand="item">
-      <MailTableCard />
-      {{ item }}
-    </template>
-  </EasyDataTable>
-  <div class="customize-footer mt-5">
-    <div class="customize-index">
-      <span class="customize-index-icon"> <Frame24 /></span>
-      <p>
-        Ko'rsatilganlari: {{ items.length }} tadan {{ currentPageFirstIndex }} -
-        {{ currentPageLastIndex }}
-      </p>
-    </div>
+    <EasyDataTable ref="dataTable" :sort-by="sortBy" :sort-type="sortType" :headers="headers" :items="items"
+        table-class-name="customize-table" button-pagination :hide-footer="true" v-model:items-selected="itemsSelected"
+        :rows-per-page="10">
+        <template #item="item">
+            {{item}}
+        </template>
+        <template #expand="item">
+            <MailTableCard />
+            {{ item }}
+        </template>
+    </EasyDataTable>
+    <div class="customize-footer mt-5">
+        <div class="customize-index">
+            <span class="customize-index-icon">
+                <Frame24 />
+            </span>
+            <p>
+                Ko'rsatilganlari: {{ items.length }} tadan {{ currentPageFirstIndex }} -
+                {{ currentPageLastIndex }}
+            </p>
+        </div>
 
-    <v-pagination
-      :model-value="currentPaginationNumber"
-      :length="maxPaginationNumber"
-      :total-visible="5"
-      @update:modelValue="updatePage"
-      color="gray-f5--text"
-      :disabled="false"
-      active-color="yellow-darken-4"
-      @click:previous="prevPage"
-      @click:next="nextPage"
-    ></v-pagination>
-  </div>
+        <v-pagination :model-value="currentPaginationNumber" :length="maxPaginationNumber" :total-visible="5"
+            @update:modelValue="updatePage" color="gray-f5--text" :disabled="false" active-color="yellow-darken-4"
+            @click:previous="prevPage" @click:next="nextPage"></v-pagination>
+    </div>
 </template>
 
 
 <style lang="scss" scoped>
 .customize-table {
-  border-radius: 10px;
-  // --easy-table-body-row-background-color: #fff7d9;
-  --easy-table-header-height: 44px;
-  --easy-table-header-font-color: $dark-900;
-  --easy-table-header-font-size: 18px;
-  text-transform: none;
-  --easy-table-header-background-color: #e9e9e9;
-  --easy-table-body-even-row-font-color: blue;
-  // --easy-table-body-row-hover-background-color: blue;
+    border-radius: 10px;
+    // --easy-table-body-row-background-color: #fff7d9;
+    --easy-table-header-height: 44px;
+    --easy-table-header-font-color: $dark-900;
+    --easy-table-header-font-size: 18px;
+    text-transform: none;
+    --easy-table-header-background-color: #e9e9e9;
+    --easy-table-body-even-row-font-color: blue;
+    // --easy-table-body-row-hover-background-color: blue;
 
-  --easy-table-body-row-height: 78px;
-  --easy-table-body-row-font-size: 14px;
+    --easy-table-body-row-height: 78px;
+    --easy-table-body-row-font-size: 14px;
 }
+
 .customize-footer {
-  display: flex;
-  justify-content: space-between;
-  // .customize-buttons{
-
-  // }
-  .customize-index {
     display: flex;
-    align-items: center;
-    .customize-index-icon {
-      margin-right: 10px;
+    justify-content: space-between;
+    // .customize-buttons{
+
+    // }
+    .customize-index {
+        display: flex;
+        align-items: center;
+
+        .customize-index-icon {
+            margin-right: 10px;
+        }
+
+        p {
+            @extend %fSize18lHeight22;
+            // font-size: 18px;
+            // font-style: medium;
+            color: black;
+        }
     }
-    p {
-      @extend %fSize18lHeight22;
-      // font-size: 18px;
-      // font-style: medium;
-      color: black;
+
+    .customize-buttons {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+
+        span {
+            height: 30px;
+            border-radius: 5px;
+            line-height: 30px;
+            background: $gray-f5;
+            @extend %fSize18lHeight22;
+            font-weight: bold;
+            padding: 0 9px;
+        }
     }
-  }
-  .customize-buttons {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    cursor: pointer;
-    span {
-      height: 30px;
-      border-radius: 5px;
-      line-height: 30px;
-      background: $gray-f5;
-      @extend %fSize18lHeight22;
-      font-weight: bold;
-      padding: 0 9px;
-    }
-  }
 }
+
 .pagination-active {
-  background-color: $yellow-500;
+    background-color: $yellow-500;
 }
 </style>

@@ -21,18 +21,13 @@ onBeforeMount(() => {
   // });
 });
 const isRightSidebarChanger = () => {
-  console.log(isRightSidebar);
   isRightSidebar.value = !isRightSidebar.value;
 };
 const pushSelectedItems = () => {
   // usePushSelectedItems(mailRef.value?.itemsSelected);
   router.push("/mails/give-to-curier");
 };
-// const logit = (salom) => {
-//   console.log("salomsizlarga", salom);
 
-//   console.log(mailRef.value.itemsSelected);
-// };
 </script>
 <template>
   <default-layout>
@@ -93,8 +88,8 @@ const pushSelectedItems = () => {
         <v-btn class="mails-btn" @click="$router.push('/mails/add-new-post')" color="yellow-darken-2" size="small">
           <v-icon>mdi-plus</v-icon> Pochta qo'shish
         </v-btn>
-        <v-btn :color="mailRef?.itemsSelected?.length !== 0 ? '#1E0E62' : '#BCBCBC'" @click="isRightSidebarChanger()"
-          class="mails-btn" size="small">
+        <v-btn :color="mailRef?.itemsSelected?.length !== 0 ? '#1E0E62' : '#BCBCBC'"
+          @click="(!mailRef?.itemsSelected.length||isRightSidebarChanger())" class="mails-btn" size="small">
           <!-- mailRef?.itemsSelected?.length !== 0 ? pushSelectedItems() : null -->
           <v-avatar>
             <D3Rotate />

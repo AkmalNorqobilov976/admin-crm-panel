@@ -3,10 +3,12 @@
 * {
     font-family: 'Inter', 'Times New Roman', Times, serif;
 }
-a{
+
+a {
     text-decoration: none;
     text-transform: none;
 }
+
 .position-relative {
     position: relative;
 }
@@ -25,4 +27,11 @@ a{
 
 .left {
     left: 0;
+}
+
+
+.inputBordered {
+    border: 2px solid #000;
+    background: #fff !important;
+    transition: all .3s ease;
 }
